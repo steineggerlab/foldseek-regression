@@ -7,4 +7,3 @@ To run the regression test suite execute the following steps:
 ```
 
 The test suite will print a report telling if each test passed or failed.
-
