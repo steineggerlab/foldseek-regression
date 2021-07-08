@@ -64,8 +64,8 @@ run_test() {
 set +e
 run_test run_search "run_search.sh"
 run_test run_search_tm "run_search_tm.sh"
-#run_test EASY_SEARCH "run_easy_search.sh"
-#run_test EASY_SEARCH_TMALIGN "run_easy_search.sh"
+run_test run_easy_search "run_easy_search.sh"
+run_test run_easy_mcif_search "run_easy_mcif_search.sh"
 
 set -e
 printf "\n"
