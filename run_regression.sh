@@ -30,7 +30,6 @@ cd "${DATADIR}"
 tar xvfz scop.tar.gz
 cd "${BASE}"
 export SCRIPTS="${BASE}/regression"
-export EVALUATE="${BASE}/bench.awk"
 
 TESTS=""
 run_test() {
@@ -62,11 +61,13 @@ run_test() {
 
 # continue on if one test fail
 set +e
+export EVALUATE="${BASE}/bench.awk"
 run_test run_search "run_search.sh"
 run_test run_search_tm "run_search_tm.sh"
 run_test run_easy_search "run_easy_search.sh"
 run_test run_easy_mcif_search "run_easy_mcif_search.sh"
-
+export EVALUATE="${BASE}/bench_clu.awk"
+run_test run_cluster "run_cluster.sh"
 set -e
 printf "\n"
 ERR=0
