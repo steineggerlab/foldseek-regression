@@ -11,7 +11,7 @@ awk '{gsub("_[A-Za-z0-9]*$","",$1); gsub("_[A-Za-z0-9]*$","",$2); print $1"\t"$2
 "${EVALUATE}" "$SCOPANOTATION" "$RESULTS/results_clu.nochain.tsv" > "${RESULTS}/evaluation.log"
 cat "${RESULTS}/evaluation.log"
 ACTUAL=$(awk '{ if($3 > 0 && $4 == 0 ){ goodcluster+=1;} if($4 > 0){ badcluster+=1;} tp+=$3; fp+=$4; }END{print goodcluster,badcluster,tp,fp}' "${RESULTS}/evaluation.log")
-TARGET="140 36 225 59"
+TARGET="218 11 269 15"
 awk -v actual="$ACTUAL" -v target="$TARGET" \
     'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
     > "${RESULTS}.report"
