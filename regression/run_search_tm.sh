@@ -15,7 +15,7 @@ awk '{gsub("_[A-Za-z0-9]*$","",$1); gsub("_[A-Za-z0-9]*$","",$2); print $1"\t"$2
 "${EVALUATE}" "$SCOPANOTATION" "$RESULTS/results_aln.nochain.m8" > "${RESULTS}/evaluation.log"
 
 ACTUAL=$(awk '{ famsum+=$3; supfamsum+=$4; foldsum+=$5}END{print famsum/NR,supfamsum/NR,foldsum/NR}' "${RESULTS}/evaluation.log")
-TARGET="0.9 0.43 0.263508"
+TARGET="0.973333 0.714848 0.379452"
 awk -v actual="$ACTUAL" -v target="$TARGET" \
     'BEGIN { print (actual >= target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
     > "${RESULTS}.report"
