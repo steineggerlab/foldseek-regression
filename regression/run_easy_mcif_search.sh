@@ -10,7 +10,7 @@ SCOPANOTATION="${DATADIR}/scop_lookup_bench.tsv"
 ACTUAL1=$(wc -l "$RESULTS/results_aln.m8"|awk '{print $1 }')
 ACTUAL2=$(wc -l "$RESULTS/results_aln_gz.m8"|awk '{print $1 }')
 ACTUAL="${ACTUAL1} ${ACTUAL2}"
-TARGET="92 92"
+TARGET="81 81"
 awk -v actual="$ACTUAL" -v target="$TARGET" \
     'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
     > "${RESULTS}.report"
