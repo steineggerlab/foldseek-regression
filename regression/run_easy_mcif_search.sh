@@ -3,7 +3,7 @@ QUERY="${DATADIR}/cif/1tim.cif"
 TARGET="${DATADIR}/scop"
 SCOPANOTATION="${DATADIR}/scop_lookup_bench.tsv"
 
-"${FOLDSEEK}" easy-search "$QUERY" "$TARGET" "$RESULTS/results_aln.m8" "$RESULTS/tmp" -e 10000 -s 5 --max-seqs 100
+"${FOLDSEEK}" easy-search "$QUERY" "$TARGET" "$RESULTS/results_aln.m8" "$RESULTS/tmp" -e 10000 -s 9 --max-seqs 100
 "${FOLDSEEK}" createdb "$TARGET" "$RESULTS/targetDB"
 "${FOLDSEEK}" easy-search "${QUERY}.gz" "$RESULTS/targetDB" "$RESULTS/results_aln_gz.m8" "$RESULTS/tmp" -e 10000 -s 5 --max-seqs 100
 
