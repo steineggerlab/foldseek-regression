@@ -14,7 +14,7 @@ TARGETDB="${RESULTS}/target"
 "${EVALUATE}" "$SCOPANOTATION" "$RESULTS/results_aln.m8" > "${RESULTS}/evaluation.log"
 
 ACTUAL=$(awk '{ famsum+=$3; supfamsum+=$4; foldsum+=$5}END{print famsum/NR,supfamsum/NR,foldsum/NR}' "${RESULTS}/evaluation.log")
-TARGET="0.873333 0.466667 0.26174"
+TARGET="0.873333 0.466667 0.259935"
 awk -v actual="$ACTUAL" -v target="$TARGET" \
     'BEGIN { print (actual >= target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
     > "${RESULTS}.report"
