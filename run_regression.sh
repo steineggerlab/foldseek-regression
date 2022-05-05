@@ -66,6 +66,7 @@ run_test run_search "run_search.sh"
 run_test run_search_tm "run_search_tm.sh"
 run_test run_easy_search "run_easy_search.sh"
 run_test run_easy_mcif_search "run_easy_mcif_search.sh"
+run_test run_easy_caonly_search "run_easy_caonly_search.sh"
 export EVALUATE="${BASE}/bench_clu.awk"
 run_test run_cluster "run_cluster.sh"
 set -e
