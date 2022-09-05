@@ -69,6 +69,7 @@ run_test run_easy_mcif_search "run_easy_mcif_search.sh"
 run_test run_easy_caonly_search "run_easy_caonly_search.sh"
 export EVALUATE="${BASE}/bench_clu.awk"
 run_test run_cluster "run_cluster.sh"
+run_test run_easy_cluster "run_easy_cluster.sh"
 set -e
 printf "\n"
 ERR=0
