@@ -3,7 +3,7 @@ INPUT="${DATADIR}/scop"
 INPUTDB="${RESULTS}/input"
 SCOPANOTATION="${DATADIR}/scop_lookup_bench.tsv"
 
-"${FOLDSEEK}" easy-cluster "${INPUT}"  "$RESULTS/results" "$RESULTS/tmp" -c 0.5 
+"${FOLDSEEK}" easy-cluster "${INPUT}"  "$RESULTS/results" "$RESULTS/tmp" -c 0.5 -s 9 
 
 "${EVALUATE}" "$SCOPANOTATION" "$RESULTS/results_cluster.tsv" > "${RESULTS}/evaluation.log"
 cat "${RESULTS}/evaluation.log"
