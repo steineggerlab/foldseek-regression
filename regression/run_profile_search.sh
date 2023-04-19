@@ -10,7 +10,7 @@ TARGETDB="${RESULTS}/target"
 
 "${FOLDSEEK}" createindex "$TARGETDB"  "$RESULTS/tmp" 
 "${FOLDSEEK}" search "$QUERYDB" "$TARGETDB" "$RESULTS/results_aln" "$RESULTS/tmp" -e 10000 -s 9 --max-seqs 100 -a
-"${FOLDSEEK}" result2profile "${QUERYDB}_ss" "${TARGETDB}_ss" "$RESULTS/results_aln" "$RESULTS/profile_ss"  --gap-pc 10 --max-seq-id 1.0 --e-profile 0.001 --pca 1.0 --pcb 3.0 --mask-profile 0 --comp-bias-corr 0
+"${FOLDSEEK}" result2profile "${QUERYDB}_ss" "${TARGETDB}_ss" "$RESULTS/results_aln" "$RESULTS/profile_ss" --max-seq-id 1.0 --e-profile 0.001 --pca 1.0 --pcb 3.0 --mask-profile 0 --comp-bias-corr 0
 "${FOLDSEEK}" result2profile "${QUERYDB}" "${TARGETDB}" "$RESULTS/results_aln" "$RESULTS/profile" --e-profile 0.001 --mask-profile 0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out'
 #"${FOLDSEEK}" lndb "$QUERYDB" "$RESULTS/profile"
 "${FOLDSEEK}" lndb "${QUERYDB}_h" "$RESULTS/profile_h"
