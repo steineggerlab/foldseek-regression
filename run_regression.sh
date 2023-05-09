@@ -74,6 +74,8 @@ export EVALUATE="${BASE}/bench_clu.awk"
 run_test run_cluster "run_cluster.sh"
 run_test run_easy_cluster "run_easy_cluster.sh"
 run_test run_other_scores "run_other_scores.sh"
+export EVALUATE="${BASE}/homstrad_bench.awk"
+run_test run_homstrad_alignment_quality "run_homstrad_alignment_quality.sh"
 set -e
 printf "\n"
 ERR=0
