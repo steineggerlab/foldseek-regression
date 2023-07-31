@@ -5,7 +5,7 @@ SCOPANOTATION="${DATADIR}/scop_lookup_bench.tsv"
 "${FOLDSEEK}" createdb "${INPUT}" "${INPUTDB}"
 
 "${FOLDSEEK}" cluster "$INPUTDB"  "${INPUTDB}_clu" "$RESULTS/tmp" -c 0.9 --min-seq-id 0.3 -s 9
-"${FOLDSEEK}" createclusearchdb  "${INPUTDB}" "${INPUTDB}_clu" "$RESULTS/db" tmp
+"${FOLDSEEK}" createclusearchdb  "${INPUTDB}" "${INPUTDB}_clu" "$RESULTS/db"
 "${FOLDSEEK}" search "${INPUTDB}" "$RESULTS/db" "$RESULTS/results_aln" "$RESULTS/tmp" --cluster-search 1 -e 10000 -s 9 --max-seqs 100 -a --remove-tmp-files 0
 "${FOLDSEEK}" convertalis "$INPUTDB" "$INPUTDB" "$RESULTS/results_aln" "$RESULTS/results_aln.m8"
 
