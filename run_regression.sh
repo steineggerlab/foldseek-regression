@@ -89,7 +89,7 @@ for i in ${TESTS} ; do
     if [ ! -f "${SCRATCH}/${i}.report" ]; then
         printf "\033[33mTEST FAILED (NO REPORT)\033[0m\n\n"
         ERR=$((ERR+1))
-        
+        continue
     fi
 
     if [ ! -s "${SCRATCH}/${i}.report" ]; then
@@ -107,6 +107,5 @@ for i in ${TESTS} ; do
     cat "${SCRATCH}/${i}.report"
     printf "\n"
 done
-echo $SCRATCH
 exit "$ERR"
 
