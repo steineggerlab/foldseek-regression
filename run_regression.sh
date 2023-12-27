@@ -78,6 +78,7 @@ run_test run_easy_cluster "run_easy_cluster.sh"
 run_test run_other_scores "run_other_scores.sh"
 export EVALUATE="${BASE}/homstrad_bench.awk"
 run_test run_homstrad_alignment_quality "run_homstrad_alignment_quality.sh"
+run_test run_easy_complex_search "run_easy_complex_search.sh"
 set -e
 printf "\n"
 ERR=0
@@ -106,6 +107,5 @@ for i in ${TESTS} ; do
     cat "${SCRATCH}/${i}.report"
     printf "\n"
 done
-
 exit "$ERR"
 
