@@ -28,6 +28,7 @@ cd "${BASE}"
 export DATADIR="${BASE}/data"
 cd "${DATADIR}"
 tar xvfz scop.tar.gz
+tar xvfz ddi.tar.gz
 cd "${BASE}"
 export SCRIPTS="${BASE}/regression"
 
@@ -83,6 +84,11 @@ run_test run_other_scores "run_other_scores.sh"
 export EVALUATE="${BASE}/homstrad_bench.awk"
 run_test run_homstrad_alignment_quality "run_homstrad_alignment_quality.sh"
 run_test run_easy_complex_search "run_easy_complex_search.sh"
+run_test run_create_interface_db "run_create_interface_db.sh"
+export EVALUATE="${BASE}/bench_int.awk"
+run_test run_easy_int_search "run_easy_int_search.sh"
+export EVALUATE="${BASE}/bench_clu_int.awk"
+run_test run_easy_int_cluster "run_easy_int_cluster.sh"
 set -e
 printf "\n"
 ERR=0
