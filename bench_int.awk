@@ -7,11 +7,11 @@ FNR==NR{
         protcidCnt[$2]++;
         next }
 {
-  split($1,query,"_");
-  split($2,target,"_");
+      split($1,query,"_");
+      split($2,target,"_");
 }
 foundFp[query[2]] < 5 && id2protcid[query[2]] != id2protcid[target[2]] {foundFp[query[2]]++; next}
-foundFp[query[2]] < 5 && id2protcid[query[2]] == id2protcid[target[2]] {foundProtcid[query[2]]++; next}
+foundFp[query[2]] < 5 && id2protcid[query[2]] == id2protcid[target[2]]{foundProtcid[query[2]]++; next}
 END{
    for(i in id2protcid){
       if(id2protcid[i] != ""){

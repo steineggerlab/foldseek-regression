@@ -6,10 +6,9 @@ FNR==NR{
         id2protcid[$1]=$2;
         protcidCnt[$2]++;
         next }
-
 {
-	split($1,rep,"_");
-	split($2,mem,"_");
+      split($1,rep,"_");
+      split($2,mem,"_");
 }
 !(rep[2] in repseq){repseq[rep[2]]=1;}
 id2protcid[rep[2]] != id2protcid[mem[2]] {foundFp[rep[2]]++; next}

@@ -1,12 +1,13 @@
 #!/bin/sh -ex
-DB="${DATADIR}/ddi"
+QUERYDB="${DATADIR}/ddi"
+TARGETDB="${DATADIR}/ddi_foldseekdb/ddiintdb"
 PROTCIDANNOTATION="${DATADIR}/ddi_lookup_bench.tsv"
 
-"${FOLDSEEK}" createdb "$DB" "$RESULTS/ddidb"
+"${FOLDSEEK}" createdb "$QUERYDB" "$RESULTS/ddidb"
 "${FOLDSEEK}" createdimerdb "$RESULTS/ddidb" "$RESULTS/ddidimerdb" "$RESULTS/tmp"
 "${FOLDSEEK}" createinterfacedb "$RESULTS/ddidimerdb" "$RESULTS/ddiintdb"
 
-"${FOLDSEEK}" easy-multimersearch "$RESULTS/ddiintdb" "$RESULTS/ddiintdb" "$RESULTS/ddi_aln" "$RESULTS/tmp" -e 10000000 --exhaustive-search --min-assigned-chains-ratio 1.0
+"${FOLDSEEK}" easy-multimersearch "$RESULTS/ddiintdb" "$TARGETDB" "$RESULTS/ddi_aln" "$RESULTS/tmp" -e 10000000 --exhaustive-search --min-assigned-chains-ratio 1.0
 
 "${EVALUATE}" "$PROTCIDANNOTATION" "$RESULTS/ddi_aln_report" > "$RESULTS/int_aln_eval.log"
 
