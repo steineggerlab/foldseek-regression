@@ -64,6 +64,7 @@ set +e
 export EVALUATE="${BASE}/bench.awk"
 run_test run_search "run_search.sh"
 run_test run_search_tm "run_search_tm.sh"
+run_test run_search_lol "run_search_lol.sh"
 run_test run_easy_search "run_easy_search.sh"
 if [ -z "${SKIP_PROSTT5}" ]; then
 run_test run_easy_search_prostt5 "run_easy_search_prostt5.sh"
