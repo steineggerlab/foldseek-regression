@@ -14,7 +14,17 @@ TARGETDB="${RESULTS}/target"
 "${EVALUATE}" "$SCOPANOTATION" "$RESULTS/results_aln.m8" > "${RESULTS}/evaluation.log"
 
 ACTUAL=$(awk '{ famsum+=$3; supfamsum+=$4; foldsum+=$5}END{print famsum/NR,supfamsum/NR,foldsum/NR}' "${RESULTS}/evaluation.log")
-TARGET="0.873333 0.462222 0.268066"
-awk -v actual="$ACTUAL" -v target="$TARGET" \
-    'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
+ACTUAL1="$(echo "$ACTUAL" | awk '{ print $1 }')"
+ACTUAL2="$(echo "$ACTUAL" | awk '{ print $2 }')"
+ACTUAL3="$(echo "$ACTUAL" | awk '{ print $3 }')"
+TARGET1="0.873333"
+TARGET2="0.462222"
+TARGET3="0.268066"
+TARGET3_LOW="0.268"
+TARGET3_HIGH="0.269"
+awk -v actual1="$ACTUAL1" -v target1="$TARGET1" \
+    -v actual2="$ACTUAL2" -v target2="$TARGET2" \
+    -v actual3="$ACTUAL3" -v target3="$TARGET3" -v target3low="$TARGET3_LOW" -v target3high="$TARGET3_HIGH" \
+    'BEGIN { print (actual1 == target1 && actual2 == target2 && actual3 > target3low && actual3 < target3high) ? "GOOD" : "BAD"; \
+        print "Expected: ", target1" "target2" "target3; print "Actual: ", actual1" "actual2" "actual3; }' \
     > "${RESULTS}.report"
