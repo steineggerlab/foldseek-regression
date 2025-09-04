@@ -1,11 +1,10 @@
 #!/bin/sh -ex
 QUERY="${DATADIR}/complex/complexcif.tar.gz"
-QUERYDB="${RESULTS}/querydb"
 
-"${FOLDSEEK}" createdb "${QUERY}" "${QUERYDB}"
-head "${QUERYDB}.index" >  "${RESULTS}/sublist"
-"${FOLDSEEK}" createsubdb "${RESULTS}/sublist" "${QUERY}" "${RESULTS}/subquery"
-"${FOLDSEEK}" easy-multimersearch "${RESULTS}/subquery" "${QUERYDB}" "${RESULTS}/searchresult" "${RESULTS}/searchtmp"
+"${FOLDSEEK}" createdb "${QUERY}" "${RESULTS}/querydb"
+head "${RESULTS}/querydb.index" > "${RESULTS}/sublist"
+"${FOLDSEEK}" createsubdb "${RESULTS}/sublist" "${RESULTS}/querydb" "${RESULTS}/subquery"
+"${FOLDSEEK}" easy-multimersearch "${RESULTS}/subquery" "${RESULTS}/querydb" "${RESULTS}/searchresult" "${RESULTS}/searchtmp"
 sort "${RESULTS}/searchresult_report" > "${RESULTS}/searchresult_report2"
 
 ACTUAL=$(awk 'NR==1{print $3,$4,$5,$6}' "${RESULTS}/searchresult_report2")
