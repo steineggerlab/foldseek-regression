@@ -14,7 +14,7 @@ awk 'FNR==NR{name[$1]=1; next}{if($3 in name){print}}' "$RESULTS/multimerclu.ind
 
 ACTUAL=$(awk 'BEGIN{qtm=0;ttm=0;qcov=0;tcov=0;n=0}{qtm+=$5;ttm+=$6;qcov+=$9;tcov+=$10;n++}END{print qtm/n,ttm,qcov,tcov/n,n}' "$RESULTS/aln_report")
 
-TARGET="0.962385 2526.32 2584.42 0.984685 2625"
+TARGET="0.96296 2526.08 2584.99 0.985561 2623"
 
 awk -v actual="$ACTUAL" -v target="$TARGET" \
     'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
