@@ -9,8 +9,7 @@ QUERY="${DATADIR}/complex/complexdir.tar.gz"
 
 ACTUAL=$(awk 'BEGIN{qtm=0;ttm=0;qcov=0;tcov=0;n=0}{qtm+=$5;ttm+=$6;qcov+=$9;tcov+=$10;n++}END{print qtm/n,ttm,qcov,tcov/n,n}' "$RESULTS/aln_report")
 
-# TARGET="0.210644 95.4505 30.482 0.787879 132"
-# Should change the evaluation. cluster is a bit random
+TARGET="0.249555 85.3951 35.667 0.749866 127"
 
 awk -v actual="$ACTUAL" -v target="$TARGET" \
     'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
