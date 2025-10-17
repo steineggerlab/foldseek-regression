@@ -84,6 +84,8 @@ run_test run_other_scores "run_other_scores.sh"
 export EVALUATE="${BASE}/homstrad_bench.awk"
 run_test run_homstrad_alignment_quality "run_homstrad_alignment_quality.sh"
 run_test run_easy_complex_search "run_easy_complex_search.sh"
+run_test run_cluster_index_exclude_search "run_cluster_index_exclude_search.sh"
+run_test run_clusearch_multimersearch "run_clusearch_multimersearch.sh"
 set -e
 printf "\n"
 ERR=0
