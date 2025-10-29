@@ -8,7 +8,7 @@ SCOPANOTATION="${DATADIR}/scop_lookup_bench.tsv"
 "${EVALUATE}" "$SCOPANOTATION" "$RESULTS/results_aln.m8" > "${RESULTS}/evaluation.log"
 
 ACTUAL=$(awk '{ famsum+=$3; supfamsum+=$4; foldsum+=$5}END{print famsum/NR,supfamsum/NR,foldsum/NR}' "${RESULTS}/evaluation.log")
-TARGET="0.986667 0.829596 0.481131"
+TARGET="0.986667 0.829596 0.479718"
 awk -v actual="$ACTUAL" -v target="$TARGET" \
-    'BEGIN { print (actual >= target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
+    'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
     > "${RESULTS}.report"

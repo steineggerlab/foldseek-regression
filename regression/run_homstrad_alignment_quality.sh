@@ -18,8 +18,8 @@ awk 'FNR==NR{pairs[$2$3]=$1 " " $4 " " $5; next}
 
 # Check avarage of alignment quality
 ACTUAL=$(awk '{sensitivity_sum+=$2; precision_sum+=$3} END{print sensitivity_sum/NR, precision_sum/NR}' "${RESULTS}/alignment_quality.csv")
-TARGET="0.8008 0.83728"  # sensitivity, precision
+TARGET="0.80136 0.83748"  # sensitivity, precision
 awk -v actual="$ACTUAL" -v target="$TARGET" \
-    'BEGIN { print (actual >= target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
+    'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
     > "${RESULTS}.report"
 
