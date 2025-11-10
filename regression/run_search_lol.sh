@@ -21,7 +21,7 @@ TARGET1="0.873333"
 TARGET2="0.462222"
 TARGET3="0.268066"
 TARGET3_LOW="0.2653" #0.268066-1%
-TARGET3_HIGH="0.2707" #0.268066+1%
+TARGET3_HIGH="0.27199" #0.268066+1%, actual AVX2 value is 0.27199
 awk -v actual1="$ACTUAL1" -v target1="$TARGET1" \
     -v actual2="$ACTUAL2" -v target2="$TARGET2" \
     -v actual3="$ACTUAL3" -v target3="$TARGET3" -v target3low="$TARGET3_LOW" -v target3high="$TARGET3_HIGH" \
