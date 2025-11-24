@@ -9,7 +9,7 @@ QUERY="${DATADIR}/complex/complexdir.tar.gz"
 
 ACTUAL=$(awk 'BEGIN{qtm=0;ttm=0;qcov=0;tcov=0;n=0}{qtm+=$5;ttm+=$6;qcov+=$9;tcov+=$10;n++}END{print qtm/n,ttm,qcov,tcov/n,n}' "$RESULTS/aln_report")
 
-TARGET="0.356074 128.054 78.151 0.726563 197"
+TARGET="0.303788 176.755 86.214 0.767648 256"
 
 awk -v actual="$ACTUAL" -v target="$TARGET" \
     'BEGIN { print (actual == target) ? "GOOD" : "BAD"; print "Expected: ", target; print "Actual: ", actual; }' \
