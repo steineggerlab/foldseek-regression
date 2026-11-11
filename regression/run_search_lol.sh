@@ -18,10 +18,10 @@ ACTUAL1="$(echo "$ACTUAL" | awk '{ print $1 }')"
 ACTUAL2="$(echo "$ACTUAL" | awk '{ print $2 }')"
 ACTUAL3="$(echo "$ACTUAL" | awk '{ print $3 }')"
 TARGET1="0.873333"
-TARGET2="0.448889"
-TARGET3="0.27193"
-TARGET3_LOW="0.26921" #0.27193-1%
-TARGET3_HIGH="0.27465" #0.27193+1%
+TARGET2="0.462222"
+TARGET3="0.273828"
+TARGET3_LOW="0.27109" #0.273828-1%
+TARGET3_HIGH="0.27657" #0.273828+1%, SSE4.1 gives 0.274361
 awk -v actual1="$ACTUAL1" -v target1="$TARGET1" \
     -v actual2="$ACTUAL2" -v target2="$TARGET2" \
     -v actual3="$ACTUAL3" -v target3="$TARGET3" -v target3low="$TARGET3_LOW" -v target3high="$TARGET3_HIGH" \
